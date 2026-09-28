@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.0
+
+- Data Saver (Settings → Connection): no reel preloading, SD quality
+- In-app update checker: silent daily check, prompt on new releases, manual check in Settings → About
+- Fixes from your reports: sponsor cadence, landscape rails and sheets
+
 ## v1.1.1
 
 - Reel preloading: while a reel plays, the next 2 preload quietly — swiping feels near-instant
