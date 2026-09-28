@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.1.1
+
+- Reel preloading: while a reel plays, the next 2 preload quietly — swiping feels near-instant
+- Landscape support: compact action rails, scroll-safe sheets, adaptive Insights grid, denser Profile toolbars
+- Sponsor cadence tuned: first prompt a few reels after install, then every 30 reels or 10 minutes (max 10/day)
+
 ## v1.1.0 — first public release
 
 - Vertical reel feed (Home, Search, Explore, niche reels, creator profiles)
