@@ -1,0 +1,26 @@
+{
+  "name": "RGVault — RedGifs App for Android",
+  "short_name": "RGVault",
+  "description": "Free unofficial RedGifs client for Android: reels feed, 1,800+ niches, offline vault and GIF export.",
+  "start_url": "/#download",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FFFDF5",
+  "theme_color": "#FFFDF5",
+  "lang": "en",
+  "categories": ["multimedia", "entertainment"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

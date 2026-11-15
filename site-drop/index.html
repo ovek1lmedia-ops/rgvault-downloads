@@ -3,17 +3,59 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Support My Work</title>
+<meta name="theme-color" content="#FFFDF5" />
+<title>RGVault — RedGifs App for Android | Download APK</title>
+<meta name="description" content="Download RGVault, a free unofficial RedGifs app for Android. Watch short-form adult videos, explore 1,800+ niches, save an offline vault and export GIFs. No account needed." />
+<meta name="keywords" content="redgifs app, redgifs android, redgifs apk, redgifs client, redgifs downloader, unofficial redgifs app, short form adult videos, adult video app for android, save redgifs videos, redgifs gif downloader, redgifs offline, rgvault" />
+<meta name="author" content="RGVault" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="rating" content="mature" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<link rel="canonical" href="https://redgifs-app.netlify.app/" />
+
+<!-- Open Graph -->
+<meta property="og:site_name" content="RGVault" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://redgifs-app.netlify.app/" />
+<meta property="og:title" content="RGVault — RedGifs App for Android" />
+<meta property="og:description" content="Free unofficial RedGifs client for Android. Reels feed, 1,800+ niches, offline vault and GIF export. No account, no tracking." />
+<meta property="og:image" content="https://redgifs-app.netlify.app/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="RGVault — a RedGifs app for Android with an offline vault and GIF export" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RGVault — RedGifs App for Android" />
+<meta name="twitter:description" content="Free unofficial RedGifs client: reels, niches, offline vault and GIF export. Download the Android APK." />
+<meta name="twitter:image" content="https://redgifs-app.netlify.app/og-image.png" />
+<meta name="twitter:image:alt" content="RGVault — a RedGifs app for Android" />
+
+<!-- Icons / manifest -->
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<!-- Perf: only domains the page actually talks to -->
+<link rel="preconnect" href="https://brijmohan.org" crossorigin />
+<link rel="dns-prefetch" href="https://brijmohan.org" />
+<link rel="dns-prefetch" href="https://github.com" />
+
 <style>
   :root {
     --ink: #111;
     --paper: #FFFDF5;
+    --pink: #E91E63;
     --kofi: #FF5E5B;
     --upi: #16A34A;
     --pp: #0079C1;
     --mark: #FFE45E;
+    --muted: #5d5d5d;
+    --line: #111;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif;
     color: var(--ink);
@@ -23,32 +65,36 @@
     min-height: 100vh;
     display: flex; flex-direction: column; align-items: center;
     padding: 40px 16px 48px;
+    line-height: 1.55;
+    overflow-x: hidden;
   }
-  .wrap { width: 100%; max-width: 880px; position: relative; z-index: 1; }
+  .wrap { width: 100%; max-width: 920px; position: relative; z-index: 1; }
+  a { color: inherit; }
+  img { max-width: 100%; height: auto; }
 
   /* flat sticker shapes — on-theme background decor */
   .shape { position: fixed; z-index: 0; pointer-events: none; }
   .ring {
     width: 92px; height: 92px; border-radius: 50%;
     background: var(--mark); border: 4px solid var(--ink);
-    top: 7%; left: 5%; box-shadow: 5px 5px 0 var(--ink);
+    top: 7%; left: 4%; box-shadow: 5px 5px 0 var(--ink);
   }
   .half {
     width: 110px; height: 55px;
     background: var(--pp); border: 4px solid var(--ink);
     border-radius: 110px 110px 0 0;
-    bottom: 9%; right: 6%; transform: rotate(12deg);
+    bottom: 9%; right: 5%; transform: rotate(12deg);
     box-shadow: 5px 5px 0 var(--ink);
   }
-  .plus { top: 24%; right: 8%; width: 44px; height: 44px; }
+  .plus { top: 24%; right: 7%; width: 44px; height: 44px; }
   .plus::before, .plus::after {
     content: ""; position: absolute; background: var(--kofi);
     border: 3px solid var(--ink); border-radius: 4px;
   }
   .plus::before { left: 12px; top: 0; width: 14px; height: 38px; }
   .plus::after { top: 12px; left: 0; width: 38px; height: 14px; }
-  .squiggle { bottom: 13%; left: 6%; width: 124px; transform: rotate(-10deg); }
-  .star { top: 58%; right: 4%; width: 64px; transform: rotate(10deg); }
+  .squiggle { bottom: 13%; left: 5%; width: 124px; transform: rotate(-10deg); }
+  .star { top: 58%; right: 3%; width: 64px; transform: rotate(10deg); }
   @media (max-width: 720px) {
     .ring { width: 54px; height: 54px; top: 3%; left: 4%; border-width: 3px; }
     .half, .squiggle, .plus { display: none; }
@@ -63,25 +109,28 @@
     box-shadow: 4px 4px 0 var(--ink);
   }
   h1 {
-    font-size: clamp(44px, 9vw, 84px); font-weight: 900;
-    letter-spacing: -2px; line-height: 1; margin: 20px 0 8px;
+    font-size: clamp(40px, 8.4vw, 78px); font-weight: 900;
+    letter-spacing: -2px; line-height: 1; margin: 20px 0 10px;
     text-transform: uppercase;
   }
   h1 .mark { background: linear-gradient(transparent 55%, var(--mark) 55%); padding: 0 6px; }
   .sub { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+  .sub strong { color: var(--pink); }
+  .note { font-size: 12px; font-weight: 600; color: var(--muted); }
 
-  .marquee {
-    overflow: hidden; white-space: nowrap;
-    border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
-    background: var(--ink); color: var(--paper);
-    font-weight: 800; font-size: 13px; letter-spacing: 2px;
-    padding: 8px 0; margin: 24px -16px 28px;
+  .tabs { display: flex; gap: 12px; justify-content: center; margin: 24px 0 26px; flex-wrap: wrap; }
+  .tab-btn {
+    font: inherit; font-weight: 800; font-size: 15px; cursor: pointer;
+    border: 3px solid var(--ink); border-radius: 999px; padding: 10px 26px;
+    background: #fff; color: var(--ink); box-shadow: 4px 4px 0 var(--ink);
+    transition: transform .12s ease, box-shadow .12s ease;
   }
-  .marquee span { display: inline-block; padding-left: 100%; animation: scroll 18s linear infinite; }
-  @keyframes scroll { to { transform: translateX(-100%); } }
+  .tab-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
+  .tab-btn.active { background: var(--ink); color: #fff; }
+  .tabpane[hidden] { display: none !important; }
 
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  @media (max-width: 720px) { .cards { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+  @media (max-width: 760px) { .cards { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } }
 
   .card {
     background: #fff; border: 3px solid var(--ink); border-radius: 16px;
@@ -100,28 +149,17 @@
   .tag-upi { background: var(--upi); }
   .tag-pp { background: var(--pp); }
   .tag-dl { background: var(--ink); }
+  .tag-ad { background: var(--pink); }
   .dl-card { grid-column: 1 / -1; }
   .dl-card p { margin-bottom: 12px; }
-  .fineprint { font-size: 12px; font-weight: 600; margin-top: 12px; }
+  .fineprint { font-size: 12px; font-weight: 600; margin-top: 12px; color: var(--muted); }
   .fineprint a { color: var(--ink); }
 
-  .tabs { display: flex; gap: 12px; justify-content: center; margin: 22px 0 26px; }
-  .tab-btn {
-    font: inherit; font-weight: 800; font-size: 15px; cursor: pointer;
-    border: 3px solid var(--ink); border-radius: 999px; padding: 10px 26px;
-    background: #fff; color: var(--ink); box-shadow: 4px 4px 0 var(--ink);
-    transition: transform .12s ease, box-shadow .12s ease;
-  }
-  .tab-btn:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--ink); }
-  .tab-btn.active { background: var(--ink); color: #fff; }
-  .tabpane[hidden] { display: none; }
-
   .card h2 { font-size: 26px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .card h3 { font-size: 17px; font-weight: 900; margin-bottom: 4px; }
   .card p { font-size: 13.5px; font-weight: 500; margin-bottom: 16px; flex: 1; }
 
-  .upi-box {
-    display: flex; gap: 8px; align-items: stretch; margin-bottom: 12px;
-  }
+  .upi-box { display: flex; gap: 8px; align-items: stretch; margin-bottom: 12px; }
   .upi-box code {
     flex: 1; font-size: 12.5px; font-weight: 700; word-break: break-all;
     border: 3px solid var(--ink); border-radius: 10px; padding: 9px 10px; background: var(--paper);
@@ -150,100 +188,507 @@
   .btn-upi { background: var(--upi); margin-bottom: 10px; }
   .btn-pp { background: var(--pp); }
   .btn-dl { background: var(--ink); }
-  .btn-upi { background: var(--upi); }
-  footer { margin-top: 36px; font-weight: 700; font-size: 13px; text-align: center; }
-  footer .box { display: inline-block; background: var(--mark); border: 3px solid var(--ink); border-radius: 10px; padding: 8px 16px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(1deg); }
 
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  .marquee {
+    overflow: hidden; white-space: nowrap;
+    border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink);
+    background: var(--ink); color: var(--paper);
+    font-weight: 800; font-size: 13px; letter-spacing: 2px;
+    padding: 8px 0; margin: 4px -16px 24px;
+  }
+  .marquee span { display: inline-block; padding-left: 100%; animation: scroll 18s linear infinite; }
+  @keyframes scroll { to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+  /* ── Ads: only ever mounted while the Download tab is active ── */
+  .ad-zone { margin: 28px 0 8px; }
+  .ad-head {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 10px; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+  }
+  .ad-head::before, .ad-head::after { content: ""; height: 1px; background: #d8d4c8; flex: 1; }
+  .ad-grid { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; justify-content: center; }
+  .ad-slot {
+    background: #fff; border: 3px solid var(--ink); border-radius: 14px;
+    box-shadow: 5px 5px 0 var(--ink); overflow: hidden;
+    min-height: 250px; display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .ad-slot::before {
+    content: "Advertisement"; position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: #a8a398; font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; pointer-events: none;
+    z-index: 0;
+  }
+  .ad-native { flex: 1 1 420px; max-width: 560px; min-height: 320px; }
+  .ad-display { flex: 0 0 300px; width: 300px; height: 250px; min-height: 250px; }
+  .ad-slot iframe { display: block; border: 0; width: 100%; height: 320px; background: transparent; position: relative; z-index: 1; }
+  .ad-display iframe { width: 300px; height: 250px; }
+  @media (max-width: 720px) {
+    .ad-native { flex-basis: 100%; min-height: 300px; }
+    .ad-slot iframe { height: 300px; }
+    .ad-display { margin: 0 auto; }
+  }
+  .ad-fallback { padding: 18px; text-align: center; font-size: 12px; color: var(--muted); }
+
+  /* ── SEO / editorial sections ── */
+  .section { margin-top: 40px; }
+  .section-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+  }
+  .section-head h2 {
+    font-size: clamp(23px, 4vw, 32px); font-weight: 900; letter-spacing: -1px;
+    line-height: 1.1;
+  }
+  .section-head .dash { flex: 1; height: 3px; background: var(--ink); border-radius: 2px; }
+  .section p.lead { font-size: 15px; font-weight: 500; margin-bottom: 14px; }
+  .section p.lead a { font-weight: 800; text-decoration: underline; text-decoration-thickness: 2px; }
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature {
+    background: #fff; border: 3px solid var(--ink); border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink); padding: 16px 16px 14px;
+  }
+  .feature h3 { font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+  .feature p { font-size: 13px; font-weight: 500; color: #333; }
+  .steps { list-style: none; counter-reset: step; display: grid; gap: 10px; }
+  .steps li {
+    counter-increment: step; position: relative; padding: 12px 14px 12px 52px;
+    background: #fff; border: 3px solid var(--ink); border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--ink); font-size: 13.5px; font-weight: 500;
+  }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    width: 26px; height: 26px; display: flex; align-items: center; justify-content: center;
+    background: var(--mark); border: 2.5px solid var(--ink); border-radius: 50%;
+    font-weight: 900; font-size: 13px;
+  }
+  .faq { display: grid; gap: 10px; }
+  .faq details {
+    background: #fff; border: 3px solid var(--ink); border-radius: 12px;
+    box-shadow: 3px 3px 0 var(--ink); padding: 12px 14px;
+  }
+  .faq summary { cursor: pointer; font-weight: 800; font-size: 14px; list-style: none; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; float: right; font-size: 20px; line-height: 1; font-weight: 900; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq p { font-size: 13px; font-weight: 500; color: #333; margin-top: 8px; }
+  .compat { font-size: 12px; color: var(--muted); font-weight: 600; margin-top: 14px; }
+
+  footer { margin-top: 44px; font-weight: 700; font-size: 13px; text-align: center; }
+  footer .box { display: inline-block; background: var(--mark); border: 3px solid var(--ink); border-radius: 10px; padding: 8px 16px; box-shadow: 4px 4px 0 var(--ink); transform: rotate(1deg); }
+  footer p { margin-top: 18px; font-weight: 500; font-size: 12px; color: var(--muted); max-width: 720px; margin-left: auto; margin-right: auto; }
+  footer nav { margin-top: 12px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; font-size: 12px; }
+  footer nav a { text-decoration: underline; text-underline-offset: 2px; }
+  .age { display: inline-block; margin-top: 14px; border: 2px solid var(--ink); border-radius: 8px; padding: 3px 9px; font-size: 11px; font-weight: 900; letter-spacing: 1px; background: #fff; }
+
+  .visually-hidden {
+    position: absolute !important; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0);
+    white-space: nowrap; border: 0;
+  }
 </style>
+
+<!-- Structured data: WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://redgifs-app.netlify.app/#website",
+  "url": "https://redgifs-app.netlify.app/",
+  "name": "RGVault",
+  "alternateName": "RGVault — RedGifs App for Android",
+  "description": "Download RGVault, a free unofficial RedGifs client for Android with an offline vault, niche explorer and GIF export.",
+  "inLanguage": "en"
+}
+</script>
+
+<!-- Structured data: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://redgifs-app.netlify.app/#app",
+  "name": "RGVault",
+  "operatingSystem": "Android 7.0+",
+  "applicationCategory": "MultimediaApplication",
+  "applicationSubCategory": "Adult video viewer",
+  "softwareVersion": "1.2.0",
+  "downloadUrl": "https://redgifs-app.netlify.app/rgvault-v1.2.0+2024-arm64-v8a.apk",
+  "installUrl": "https://redgifs-app.netlify.app/#download",
+  "fileSize": "25MB",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "featureList": [
+    "Short-form video reels feed",
+    "Explore more than 1,800 niches",
+    "Search creators, tags and videos",
+    "Offline vault for saved videos",
+    "GIF export with A–B trimming",
+    "No account required",
+    "On-device history and likes",
+    "Data Saver mode"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "RGVault",
+    "url": "https://redgifs-app.netlify.app/"
+  }
+}
+</script>
+
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is RGVault an official RedGifs app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. RGVault is an independent, unofficial RedGifs client for Android. It is not affiliated with or endorsed by RedGifs. All videos remain hosted by RedGifs and belong to their creators."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the RedGifs app free to download?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. RGVault is free to download and use. An occasional sponsored page keeps development going, and optional tips are welcome from the Support tab."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a RedGifs account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No account is required to browse reels, explore niches, save videos to the offline vault or export GIFs. Everything personal stays on your phone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I watch RedGifs videos offline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The built-in vault stores downloaded videos on your device so you can watch them without a connection. Saved videos, likes and history survive app updates installed over the old version."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Android version do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "RGVault supports Android 7.0 (API 24) and newer. Most phones should use the arm64-v8a APK. Older 32-bit phones can use the armeabi-v7a build from GitHub Releases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I update the app without losing my vault?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Install the new APK over the existing app. Do not uninstall the old version first. Installing with the same package signature keeps your vault, likes and watch history intact."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="shape ring"></div>
 <div class="shape plus"></div>
-<svg class="shape squiggle" viewBox="0 0 124 24" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round">
+<svg class="shape squiggle" viewBox="0 0 124 24" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" aria-hidden="true">
   <path d="M4 12 Q 16 2, 28 12 T 52 12 T 76 12 T 100 12 T 124 12" />
 </svg>
-<svg class="shape star" viewBox="0 0 64 64">
+<svg class="shape star" viewBox="0 0 64 64" aria-hidden="true">
   <path d="M32 2 L38 26 L62 32 L38 38 L32 62 L26 38 L2 32 L26 26 Z" fill="#FF5E5B" stroke="#111" stroke-width="3" stroke-linejoin="round" />
 </svg>
 <div class="shape half"></div>
+
 <div class="wrap">
-  <span class="kicker">★ RGVault ★</span>
-  <h1>Download &amp; <span class="mark">support</span></h1>
-  <p class="sub">Free app. Independent &amp; open-source — tips keep it shipping.</p>
+  <header>
+    <span class="kicker">★ RGVault ★</span>
+    <h1>RedGifs <span class="mark">app</span> for Android</h1>
+    <p class="sub">Free, unofficial client for short-form adult videos. <strong>Download</strong> the APK or support the project.</p>
+    <p class="note">No account · On-device vault · GIF export · 1,800+ niches</p>
 
-  <div class="tabs" role="tablist">
-    <button class="tab-btn" id="tabbtn-download" role="tab" onclick="showTab('download')">Download</button>
-    <button class="tab-btn active" id="tabbtn-support" role="tab" onclick="showTab('support')">Support</button>
-  </div>
+    <div class="tabs" role="tablist" aria-label="Download or support">
+      <button class="tab-btn active" id="tabbtn-download" role="tab" aria-selected="true" aria-controls="tab-download" onclick="showTab('download')">Download</button>
+      <button class="tab-btn" id="tabbtn-support" role="tab" aria-selected="false" aria-controls="tab-support" onclick="showTab('support')">Support</button>
+    </div>
+  </header>
 
-  <div class="tabpane" id="tab-download" hidden>
-    <div class="cards">
-      <div class="card dl-card">
-        <span class="tag tag-dl">Android</span>
-        <h2>Get RGVault — v1.2.0</h2>
-        <p>Free. No account. For most phones pick the arm64 build — open it on your phone, allow the one-time install permission, done. Updates install over the old version.</p>
-        <div class="btn-row">
-          <a class="btn btn-dl" href="rgvault-v1.2.0-arm64-v8a.apk">Download APK ↓</a>
-          <a class="btn btn-outline" href="https://github.com/ovek1lmedia-ops/rgvault-downloads/releases" target="_blank" rel="noopener">All versions →</a>
+  <main>
+    <!-- ───────────── Download tab (the only place ads mount) ───────────── -->
+    <section class="tabpane" id="tab-download" role="tabpanel" aria-labelledby="tabbtn-download">
+      <div class="cards">
+        <article class="card dl-card">
+          <span class="tag tag-dl">Android APK</span>
+          <h2>Get RGVault — v1.2.0</h2>
+          <p>Free. No account. Pick the arm64 build for most phones, open it on your device, allow the one-time install permission, done. New versions install over the old one, so your vault, likes and history stay put.</p>
+          <div class="btn-row">
+            <a class="btn btn-dl" href="rgvault-v1.2.0+2024-arm64-v8a.apk" rel="noopener">Download APK (arm64) ↓</a>
+            <a class="btn btn-outline" href="https://github.com/ovek1lmedia-ops/rgvault-downloads/releases" target="_blank" rel="noopener">All versions →</a>
+          </div>
+          <p class="fineprint">Old 32-bit phone? Grab the armeabi-v7a build from <a href="https://github.com/ovek1lmedia-ops/rgvault-downloads/releases" target="_blank" rel="noopener">GitHub Releases</a>, where the signing fingerprint is also published. Requires Android 7.0+ · ~25 MB. <a href="rgvault-v1.2.0+2024-arm64-v8a.apk" rel="noopener">Direct APK link</a>.</p>
+        </article>
+      </div>
+
+      <!-- Ad zone: populated by JS only while this tab is visible -->
+      <aside class="ad-zone" id="ad-zone" aria-label="Advertisements">
+        <div class="ad-head">Advertisement</div>
+        <div class="ad-grid">
+          <div class="ad-slot ad-native" id="ad-native"></div>
+          <div class="ad-slot ad-display" id="ad-display"></div>
         </div>
-        <p class="fineprint">Old 32-bit device? Grab the armeabi build from <a href="https://github.com/ovek1lmedia-ops/rgvault-downloads/releases" target="_blank" rel="noopener">GitHub Releases</a>, where the full signature fingerprint is also published.</p>
+      </aside>
+    </section>
+
+    <!-- ───────────── Support tab (never any ads) ───────────── -->
+    <section class="tabpane" id="tab-support" role="tabpanel" aria-labelledby="tabbtn-support" hidden>
+      <div class="marquee" aria-hidden="true"><span>THANK YOU ★ EVERY TIP COUNTS ★ THANK YOU ★ EVERY TIP COUNTS ★&nbsp;</span></div>
+      <div class="cards">
+        <article class="card">
+          <span class="tag tag-kofi">Ko-fi</span>
+          <h2>Coffee</h2>
+          <p>One-time tip. No account needed.</p>
+          <div class="btn-row">
+            <a class="btn btn-kofi" href="https://ko-fi.com/ovek1l" target="_blank" rel="noopener">Tip →</a>
+            <a class="btn btn-outline" href="https://ko-fi.com/ovek1l/tiers" target="_blank" rel="noopener">Join membership →</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="tag tag-upi">UPI</span>
+          <h2>UPI</h2>
+          <p>For India. GPay / PhonePe / Paytm.</p>
+          <div class="upi-box"><code id="upi-id">sudhansusahoo@ptyes</code><button class="copy-btn" id="copy-btn" onclick="copyUpi()" type="button">Copy</button></div>
+          <a class="btn btn-upi" href="upi://pay?pa=sudhansusahoo@ptyes&amp;pn=Support&amp;cu=INR">Open UPI app →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag tag-pp">PayPal</span>
+          <h2>PayPal</h2>
+          <p>For everywhere else. Any amount.</p>
+          <a class="btn btn-pp" href="https://paypal.me/sahoosudhansu" target="_blank" rel="noopener">Send via PayPal →</a>
+        </article>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <div class="tabpane" id="tab-support">
-  <div class="marquee"><span>THANK YOU ★ EVERY TIP COUNTS ★ THANK YOU ★ EVERY TIP COUNTS ★&nbsp;</span></div>
+    <!-- ───────────── Always-visible content for search engines & readers ───────────── -->
+    <section class="section" id="about">
+      <div class="section-head"><h2>What is RGVault?</h2><span class="dash"></span></div>
+      <p class="lead">RGVault is a free, unofficial <strong>RedGifs app for Android</strong> built for watching short-form adult videos in a clean, full-screen reel feed. Instead of fighting a mobile browser, you get one vertical feed, a searchable directory of more than 1,800 niches, creator pages, and a private vault for videos you want to keep. It is an independent client — not affiliated with RedGifs — and it never asks you to create an account.</p>
+      <p class="lead">The app is designed around the way people actually use short-form video: swipe, watch, like, repeat. Explore lets you jump from Trending into categories such as Amateur, Asian, Ebony, Latina, Cosplay, Fitness and dozens more. Inside a niche you can sort videos by <strong>Trending, Most viewed, Newest, Oldest or Most liked</strong>, not just sort the niche list. When you find something worth keeping, save it to the offline vault or trim a six-second clip and export it as a GIF.</p>
+    </section>
 
-  <div class="cards">
-    <div class="card">
-      <span class="tag tag-kofi">Ko-fi</span>
-      <h2>Coffee</h2>
-      <p>One-time tip. No account needed.</p>
-      <div class="btn-row">
-        <a class="btn btn-kofi" href="https://ko-fi.com/ovek1l" target="_blank" rel="noopener">Tip →</a>
-        <a class="btn btn-outline" href="https://ko-fi.com/ovek1l/tiers" target="_blank" rel="noopener">Join membership →</a>
+    <section class="section" id="features">
+      <div class="section-head"><h2>Features</h2><span class="dash"></span></div>
+      <div class="feature-grid">
+        <article class="feature">
+          <h3>Full-screen reels feed</h3>
+          <p>One vertical pager for Home, niches, tags, search and creator pages. Prefetching and adaptive playback keep swiping smooth.</p>
+        </article>
+        <article class="feature">
+          <h3>Explore 1,800+ niches</h3>
+          <p>Browse the full niche directory by category, A–Z or popularity. Every niche opens as its own sorted video feed.</p>
+        </article>
+        <article class="feature">
+          <h3>Search creators, tags &amp; videos</h3>
+          <p>Find a creator by name, search a tag, or look up a specific video. Results use the same player as the main feed.</p>
+        </article>
+        <article class="feature">
+          <h3>Offline vault</h3>
+          <p>Save videos to your phone and watch them without a connection. Vault, likes and history survive in-place app updates.</p>
+        </article>
+        <article class="feature">
+          <h3>GIF maker &amp; export</h3>
+          <p>Drag A–B handles over any downloaded clip, preview the loop, and share a six-second GIF to any app.</p>
+        </article>
+        <article class="feature">
+          <h3>Private by default</h3>
+          <p>No sign-up, no cloud sync, no tracking SDK. History, likes and filter preferences stay on your device.</p>
+        </article>
+        <article class="feature">
+          <h3>Data Saver</h3>
+          <p>Force SD playback and pause prefetching on cellular data, so a scroll session does not eat your plan.</p>
+        </article>
+        <article class="feature">
+          <h3>Limits &amp; filters</h3>
+          <p>Hide topics, hide AI-generated reels, block a creator, or set a daily screen-time limit — all reversible from one screen.</p>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <span class="tag tag-upi">UPI</span>
-      <h2>UPI</h2>
-      <p>For India. GPay / PhonePe / Paytm.</p>
-      <div class="upi-box"><code id="upi-id">sudhansusahoo@ptyes</code><button class="copy-btn" id="copy-btn" onclick="copyUpi()">Copy</button></div>
-      <a class="btn btn-upi" href="upi://pay?pa=sudhansusahoo@ptyes&amp;pn=Support&amp;cu=INR">Open UPI app →</a>
-    </div>
+    <section class="section" id="install">
+      <div class="section-head"><h2>How to install the RedGifs APK</h2><span class="dash"></span></div>
+      <ol class="steps">
+        <li>Open the <a href="#download" onclick="showTab('download')">Download tab</a> and tap the arm64 APK button.</li>
+        <li>When Android asks, allow your browser to install unknown apps. This is a one-time permission.</li>
+        <li>Open the downloaded file and tap <strong>Install</strong>. If Play Protect warns about a sideloaded app, choose <strong>Install anyway</strong> after checking you downloaded it from this site or the official GitHub Releases page.</li>
+        <li>Launch RGVault and start scrolling. To update later, install the new APK <em>over</em> the old app — never uninstall first, or your vault and history will be erased.</li>
+      </ol>
+      <p class="compat">Tested on Android 7.0 and newer. arm64-v8a covers most phones from the last several years; armeabi-v7a is available for older 32-bit devices.</p>
+    </section>
 
-    <div class="card">
-      <span class="tag tag-pp">PayPal</span>
-      <h2>PayPal</h2>
-      <p>For everywhere else. Any amount.</p>
-      <a class="btn btn-pp" href="https://paypal.me/sahoosudhansu" target="_blank" rel="noopener">Send via PayPal →</a>
-    </div>
-  </div>
-  </div>
+    <section class="section" id="faq">
+      <div class="section-head"><h2>RedGifs app FAQ</h2><span class="dash"></span></div>
+      <div class="faq">
+        <details>
+          <summary>Is RGVault an official RedGifs app?</summary>
+          <p>No. RGVault is an independent, unofficial client for Android. It is not affiliated with or endorsed by RedGifs. Videos are hosted by RedGifs and belong to their creators; RGVault only provides a different way to browse and save them.</p>
+        </details>
+        <details>
+          <summary>Is the app free?</summary>
+          <p>Yes. RGVault is free to download and use. An occasional inline sponsored page keeps the lights on, and you can tip the developer from the Support tab if you want to.</p>
+        </details>
+        <details>
+          <summary>Do I need a RedGifs account?</summary>
+          <p>No account is required to browse reels, explore niches, save videos or export GIFs. Your vault, likes and history are stored locally on your phone.</p>
+        </details>
+        <details>
+          <summary>Can I watch videos offline?</summary>
+          <p>Yes. Anything you save to the vault is stored on your device and plays without a connection. Streaming the main feed still needs internet access.</p>
+        </details>
+        <details>
+          <summary>Which APK should I download?</summary>
+          <p>Choose arm64-v8a for almost every modern Android phone. If you have an older 32-bit device, use the armeabi-v7a build from GitHub Releases.</p>
+        </details>
+        <details>
+          <summary>Will an update delete my saved videos?</summary>
+          <p>No, as long as you install the new APK over the existing app. Uninstalling first removes the app's private storage, including the vault, likes and history.</p>
+        </details>
+        <details>
+          <summary>Is this a RedGifs downloader for every video?</summary>
+          <p>RGVault can save the videos it can play, including HD where the source provides it. It does not bypass paywalls, private accounts or creator restrictions. Please respect creators and RedGifs' terms.</p>
+        </details>
+      </div>
+    </section>
+  </main>
 
-  <footer><span class="box">Thanks for the support ♡</span></footer>
+  <footer>
+    <span class="box">Thanks for the support ♡</span>
+    <p>RGVault is a free, unofficial RedGifs client for Android: watch short-form adult videos, explore niches, save an offline vault and export GIFs — no account needed. Download the latest APK from the Download tab.</p>
+    <nav aria-label="Footer">
+      <a href="#download" onclick="showTab('download')">Download</a>
+      <a href="#support" onclick="showTab('support')">Support</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://github.com/ovek1lmedia-ops/rgvault-downloads/releases" target="_blank" rel="noopener">GitHub Releases</a>
+    </nav>
+    <p><span class="age">18+ ONLY</span><br />Adult content. By using this site you confirm you are of legal age in your jurisdiction. RGVault does not host or own any video content; all rights belong to RedGifs and the respective creators. This is an independent fan project and is not affiliated with RedGifs.</p>
+  </footer>
 </div>
 
 <script>
-  function showTab(name) {
-    var tabs = ['download', 'support'];
-    for (var i = 0; i < tabs.length; i++) {
-      var t = tabs[i];
-      document.getElementById('tab-' + t).hidden = (t !== name);
-      var b = document.getElementById('tabbtn-' + t);
-      if (b) {
-        if (t === name) b.classList.add('active');
-        else b.classList.remove('active');
+  // ── Tabs ────────────────────────────────────────────────────────────────
+  var TABS = ['download', 'support'];
+  var adState = { mounted: false, timer: null };
+
+  function showTab(name, updateHash) {
+    if (TABS.indexOf(name) === -1) name = 'download';
+    for (var i = 0; i < TABS.length; i++) {
+      var t = TABS[i];
+      var pane = document.getElementById('tab-' + t);
+      var btn = document.getElementById('tabbtn-' + t);
+      var on = (t === name);
+      if (pane) pane.hidden = !on;
+      if (btn) {
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-selected', on ? 'true' : 'false');
       }
     }
-    try { history.replaceState(null, '', '#' + name); } catch (e) {}
+
+    // Ads exist only while Download is the active tab. Leaving the tab
+    // removes the iframes so no ad request or impression happens on Support.
+    if (name === 'download') {
+      mountAds();
+    } else {
+      unmountAds();
+    }
+
+    if (updateHash !== false) {
+      try { history.replaceState(null, '', '#' + name); } catch (e) {}
+    }
   }
-  (function () {
-    var h = (location.hash || '').replace('#', '');
-    if (h === 'download' || h === 'support') showTab(h);
-  })();
+
+  // ── Ads (Download tab only) ─────────────────────────────────────────────
+  var NATIVE_CONTAINER = 'container-f78b7c13f8d11dd2bc0d966b21ff63aa';
+  var NATIVE_SCRIPT = 'https://brijmohan.org/21/f78b7c13f8d11dd2bc0d966b21ff63aa';
+  var DISPLAY_KEY = '50bd1d78eab3301db3e17b3504264748';
+  var DISPLAY_SCRIPT = 'https://brijmohan.org/22/50bd1d78eab3301db3e17b3504264748';
+
+  function nativeAdDoc() {
+    return '<!DOCTYPE html><html><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<style>html,body{margin:0;padding:0;background:transparent;overflow:hidden}' +
+      'body{display:flex;align-items:center;justify-content:center;min-height:100vh}' +
+      '#' + NATIVE_CONTAINER + '{width:100%;max-width:560px;min-height:300px;display:flex;align-items:center;justify-content:center}' +
+      'iframe{max-width:100%;border:0}</style></head><body>' +
+      '<div id="' + NATIVE_CONTAINER + '"></div>' +
+      '<script async data-cfasync="false" src="' + NATIVE_SCRIPT + '"><\/script>' +
+      '</body></html>';
+  }
+
+  function displayAdDoc() {
+    return '<!DOCTYPE html><html><head><meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<style>html,body{margin:0;padding:0;background:transparent;overflow:hidden;' +
+      'display:flex;align-items:center;justify-content:center;min-height:100vh}iframe{border:0}</style>' +
+      '</head><body>' +
+      '<script>atOptions = {"key":"' + DISPLAY_KEY + '","format":"iframe","height":250,"width":300,"params":{}};<\/script>' +
+      '<script src="' + DISPLAY_SCRIPT + '"><\/script>' +
+      '</body></html>';
+  }
+
+  function makeAdFrame(kind) {
+    var frame = document.createElement('iframe');
+    frame.title = 'Advertisement';
+    frame.setAttribute('scrolling', 'no');
+    frame.setAttribute('frameborder', '0');
+    frame.setAttribute('loading', 'lazy');
+    frame.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+    frame.srcdoc = kind === 'native' ? nativeAdDoc() : displayAdDoc();
+    return frame;
+  }
+
+  function mountAds() {
+    if (adState.mounted) return;
+    adState.mounted = true;
+    if (adState.timer) clearTimeout(adState.timer);
+    // Wait for the tab paint first; ads never block the download card.
+    adState.timer = setTimeout(function () {
+      var supportVisible = !document.getElementById('tab-support').hidden;
+      if (supportVisible) { adState.mounted = false; return; }
+      var nativeSlot = document.getElementById('ad-native');
+      var displaySlot = document.getElementById('ad-display');
+      if (nativeSlot && !nativeSlot.querySelector('iframe')) {
+        nativeSlot.appendChild(makeAdFrame('native'));
+      }
+      if (displaySlot && !displaySlot.querySelector('iframe')) {
+        displaySlot.appendChild(makeAdFrame('display'));
+      }
+    }, 300);
+  }
+
+  function unmountAds() {
+    adState.mounted = false;
+    if (adState.timer) { clearTimeout(adState.timer); adState.timer = null; }
+    ['ad-native', 'ad-display'].forEach(function (id) {
+      var slot = document.getElementById(id);
+      if (!slot) return;
+      while (slot.firstChild) slot.removeChild(slot.firstChild);
+    });
+  }
+
+  // ── UPI copy ────────────────────────────────────────────────────────────
   function copyUpi() {
     var id = document.getElementById('upi-id').textContent.trim();
     var btn = document.getElementById('copy-btn');
@@ -252,9 +697,6 @@
       btn.textContent = '✓';
       setTimeout(function () { btn.textContent = old; }, 1500);
     }
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(id).then(done).catch(function () { fallback(); });
-    } else { fallback(); }
     function fallback() {
       var ta = document.createElement('textarea');
       ta.value = id;
@@ -263,7 +705,21 @@
       try { document.execCommand('copy'); done(); } catch (e) {}
       document.body.removeChild(ta);
     }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(id).then(done).catch(fallback);
+    } else { fallback(); }
   }
+
+  // ── Boot: honour #support / #download, default to Download ──────────────
+  (function () {
+    var h = (location.hash || '').replace('#', '');
+    if (h === 'support') {
+      showTab('support', false);
+    } else {
+      showTab('download', false);
+      // If the URL points at a section anchor (#faq etc.), do not rewrite it.
+    }
+  })();
 </script>
 </body>
 </html>

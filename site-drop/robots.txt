@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Keep the sitemap discoverable. The site is a single-page app with
+# in-page tabs, so there are no per-tab URLs to list.
+Sitemap: https://redgifs-app.netlify.app/sitemap.xml

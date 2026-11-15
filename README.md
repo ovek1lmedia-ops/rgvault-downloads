@@ -2,7 +2,7 @@
 
 Official download page for **RGVault**, an unofficial RedGifs client for Android.
 No account needed. Free. Get the APK below or from the
-[mirror on our support site](https://support-my-innovation.netlify.app/).
+[mirror on our support site](https://redgifs-app.netlify.app/#support).
 
 > Unofficial project — not affiliated with or endorsed by RedGifs.
 
@@ -31,7 +31,7 @@ Every APK is signed with the developer's release key. Fingerprint (SHA-256):
 ## Support the project
 
 If RGVault saves you time, consider supporting development:
-https://support-my-innovation.netlify.app/
+https://redgifs-app.netlify.app/#support
 
 ## Source code?
 

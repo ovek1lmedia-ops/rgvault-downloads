@@ -1,0 +1,4 @@
+# Old support/download URLs -> the tabbed SPA.
+/support      /#support   302
+/support.html /#support   301!
+/download     /#download  302
