@@ -1,6 +1,6 @@
 # Changelog
 
-## v1.2.0 (build 2024)
+## v1.2.1
 
 - Seamless playback & no spinner over already-loaded reels: eliminated buffering spinner overlays during video playback and loops; added 350ms grace delay and suppressed loaders on prefetched/cached reels
 - Robust cold startup & auto-retry: unconditional cached feed restoration from Hive on frame 1 so the app never shows a blank or error screen on startup; added 3-stage automatic retry loop with exponential backoff and page-1 fallback
